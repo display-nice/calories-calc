@@ -81,7 +81,10 @@ calculateButton.addEventListener('click', function (evt) {
     let caloriesNormal = weightMaintenance();
     let caloriesLoseWeight = Math.round(caloriesNormal - 0.15*caloriesNormal);
     let caloriesGainWeight = Math.round(caloriesNormal + 0.15*caloriesNormal);
-    return console.log(caloriesNormal, caloriesLoseWeight, caloriesGainWeight);
+    // return console.log(caloriesNormal, caloriesLoseWeight, caloriesGainWeight);
+    document.querySelector('#calories-norm').textContent = caloriesNormal;
+    document.querySelector('#calories-minimal').textContent = caloriesLoseWeight;
+    document.querySelector('#calories-maximal').textContent = caloriesGainWeight;
 });
 
 ageField.onchange = function() {
