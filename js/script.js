@@ -34,7 +34,7 @@ let toggleResetButton = function () {
 resetButton.onclick = function () {
     resetButton.disabled = true;
     calculateButton.disabled = true;
-    calculationResult.hidden = true;
+    calculationResult.classList.add('counter__result--hidden');
 }
 
 // Функция преобразования выбранного пола м\ж в числовую поправку к формуле расчёта ккал.
@@ -77,7 +77,7 @@ let weightMaintenance = function () {
 // Итоговая функция, активирующая расчёт и запись в поле результата
 calculateButton.addEventListener('click', function (evt) {
     evt.preventDefault();
-    calculationResult.hidden = false;
+    calculationResult.classList.remove('counter__result--hidden');
     let caloriesNormal = weightMaintenance();
     let caloriesLoseWeight = Math.round(caloriesNormal - 0.15*caloriesNormal);
     let caloriesGainWeight = Math.round(caloriesNormal + 0.15*caloriesNormal);
