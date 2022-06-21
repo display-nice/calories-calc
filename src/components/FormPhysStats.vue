@@ -4,6 +4,7 @@
 		<ul class="switcher">
 			<li class="switcher__item">
 				<input
+					@click="setGender"
 					id="gender-male"
 					name="gender"
 					value="male"
@@ -15,6 +16,7 @@
 			</li>
 			<li class="switcher__item">
 				<input
+					@click="setGender"
 					id="gender-female"
 					name="gender"
 					value="female"
@@ -35,6 +37,7 @@
 				</div>
 				<div class="input__wrapper">
 					<input
+						v-model="age"
 						type="text"
 						id="age"
 						name="age"
@@ -52,6 +55,7 @@
 				</div>
 				<div class="input__wrapper">
 					<input
+						v-model="height"
 						type="text"
 						id="height"
 						name="height"
@@ -69,6 +73,7 @@
 				</div>
 				<div class="input__wrapper">
 					<input
+						v-model="weight"
 						type="text"
 						id="weight"
 						name="weight"
@@ -84,7 +89,30 @@
 </template>
 
 <script>
-	export default {};
+	export default {
+		data() {
+			return {
+				gender: "",
+				age: "",
+				height: "",
+				weight: "",
+			};
+		},
+		methods: {
+			setGender(e) {
+				switch (e.target.value) {
+					case "male": {
+						this.gender = "male";
+						break;
+					}
+					case "female": {
+						this.gender = "female";
+						break;
+					}
+				}
+			},
+		},
+	};
 </script>
 
 <style scoped>
