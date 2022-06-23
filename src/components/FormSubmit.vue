@@ -1,14 +1,21 @@
-<template>
+<template id="formSubmit">
 	<div class="form__submit">
 		<button
 			class="form__submit-button button"
 			name="submit"
 			type="submit"
+			ref="calcBtn"
 			disabled
 		>
 			Рассчитать
 		</button>
-		<button class="form__reset-button" name="reset" type="reset" disabled>
+		<button @click="customClick">Custom Click</button>
+		<button
+			class="form__reset-button"
+			name="reset"
+			type="reset"
+			:disabled="clearBtnActive"
+		>
 			<svg
 				width="24"
 				height="24"
@@ -28,7 +35,44 @@
 </template>
 
 <script>
-	export default {};
+	export default {
+		el: "#formSubmit",
+		props: {
+			stats: {
+				type: Object,
+				required: true,
+			},
+		},
+		data() {
+			return {
+				calcBtnActive: false,
+				clearBtnActive: false,
+			};
+		},
+		methods: {
+			customClick() {
+				let someElement = this.$el.querySelector(".form__submit-button");
+				console.log(someElement);
+			},
+		},
+		watch: {
+			stats: {
+				handler(changedStats) {
+					let values = Object.values(changedStats);
+					let statsFilled = 0;
+					for (let value of values) {
+						if (value) {
+							statsFilled += 1;
+						}
+					}
+					statsFilled === values.length
+						? (this.$refs.calcBtn.disabled = false)
+						: (this.$refs.calcBtn.disabled = true);
+				},
+				deep: true,
+			},
+		},
+	};
 </script>
 
 <style scoped>

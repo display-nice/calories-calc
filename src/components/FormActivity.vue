@@ -5,6 +5,7 @@
 			<li class="radio">
 				<div class="radio__wrapper">
 					<input
+						@click="getActivityCoeff"
 						id="activity-minimal"
 						name="activity"
 						value="min"
@@ -21,6 +22,7 @@
 			<li class="radio">
 				<div class="radio__wrapper">
 					<input
+						@click="getActivityCoeff"
 						id="activity-low"
 						name="activity"
 						value="low"
@@ -36,6 +38,7 @@
 			<li class="radio">
 				<div class="radio__wrapper">
 					<input
+						@click="getActivityCoeff"
 						id="activity-medium"
 						name="activity"
 						value="medium"
@@ -49,6 +52,7 @@
 			<li class="radio">
 				<div class="radio__wrapper">
 					<input
+						@click="getActivityCoeff"
 						id="activity-high"
 						name="activity"
 						value="high"
@@ -62,6 +66,7 @@
 			<li class="radio">
 				<div class="radio__wrapper">
 					<input
+						@click="getActivityCoeff"
 						id="activity-maximal"
 						name="activity"
 						value="max"
@@ -79,7 +84,40 @@
 </template>
 
 <script>
-	export default {};
+	export default {
+		data() {
+			return {
+				activityCoeff: 1.2,
+			};
+		},
+		methods: {
+			getActivityCoeff(e) {
+				switch (e.target.value) {
+					case "min":
+						this.activityCoeff = 1.2;
+						break;
+					case "low":
+						this.activityCoeff = 1.375;
+						break;
+					case "medium":
+						this.activityCoeff = 1.55;
+						break;
+					case "high":
+						this.activityCoeff = 1.725;
+						break;
+					case "max":
+						this.activityCoeff = 1.9;
+						break;
+					default:
+						this.activityCoeff = 1.2;
+						break;
+				}
+				this.$emit("activityCoeff", this.activityCoeff);
+			},
+			// increase() {
+			// }
+		},
+	};
 </script>
 
 <style scoped>

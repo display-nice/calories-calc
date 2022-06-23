@@ -63,7 +63,6 @@ let getActivityCoefficient = function () {
             return 1.2;
     }
 }
-// console.log(getActivityCoefficient());
 // Функция расчёта ккал для поддержания веса
 let weightMaintenance = function () {
     let age = ageField.value;
@@ -71,7 +70,6 @@ let weightMaintenance = function () {
     let weight = weightField.value;
     let N = Math.round( ((10*weight) + (6.25*height) - (5*age) + getParameterForGender()) * getActivityCoefficient() );
     return N;
-    // return console.log(N);
 }
 
 // Итоговая функция, активирующая расчёт и запись в поле результата

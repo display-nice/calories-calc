@@ -4,7 +4,7 @@
 		<ul class="switcher">
 			<li class="switcher__item">
 				<input
-					@click="setGender"
+					@click="emitPhysStats"
 					id="gender-male"
 					name="gender"
 					value="male"
@@ -16,7 +16,7 @@
 			</li>
 			<li class="switcher__item">
 				<input
-					@click="setGender"
+					@click="emitPhysStats"
 					id="gender-female"
 					name="gender"
 					value="female"
@@ -37,7 +37,8 @@
 				</div>
 				<div class="input__wrapper">
 					<input
-						v-model="age"
+						@input="emitPhysStats"
+						v-model="physStats.age"
 						type="text"
 						id="age"
 						name="age"
@@ -55,7 +56,8 @@
 				</div>
 				<div class="input__wrapper">
 					<input
-						v-model="height"
+						@input="emitPhysStats"
+						v-model="physStats.height"
 						type="text"
 						id="height"
 						name="height"
@@ -73,7 +75,8 @@
 				</div>
 				<div class="input__wrapper">
 					<input
-						v-model="weight"
+						v-model="physStats.weight"
+						@input="emitPhysStats"
 						type="text"
 						id="weight"
 						name="weight"
@@ -90,26 +93,31 @@
 
 <script>
 	export default {
+		// name: FormPhysStats,
+		emits: ["physicalStats"],
 		data() {
 			return {
-				gender: "",
-				age: "",
-				height: "",
-				weight: "",
+				physStats: {
+					genderCoeff: 5,
+					age: "",
+					height: "",
+					weight: "",
+				},
 			};
 		},
 		methods: {
-			setGender(e) {
+			emitPhysStats(e) {
 				switch (e.target.value) {
 					case "male": {
-						this.gender = "male";
+						this.physStats.genderCoeff = 5;
 						break;
 					}
 					case "female": {
-						this.gender = "female";
+						this.physStats.genderCoeff = -161;
 						break;
 					}
 				}
+				this.$emit("physicalStats", this.physStats);
 			},
 		},
 	};
