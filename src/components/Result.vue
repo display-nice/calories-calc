@@ -19,7 +19,14 @@
 </template>
 
 <script>
-	export default {};
+	export default {
+		// props: {
+		// 	calRange: {
+		// 		type: Array,
+		// 		required: true,
+		// 	},
+		// },
+	};
 </script>
 
 <style scoped>

@@ -13,6 +13,7 @@
 	import FormPhysStats from "@/components/FormPhysStats.vue";
 	import FormActivity from "./FormActivity.vue";
 	import FormSubmit from "./FormSubmit.vue";
+
 	export default {
 		components: { FormPhysStats, FormActivity, FormSubmit },
 		data() {
@@ -24,7 +25,6 @@
 					height: Number,
 					weight: Number,
 				},
-				testArray: [1, 2, 3],
 				testButton: 0,
 			};
 		},

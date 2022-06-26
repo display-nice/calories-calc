@@ -1,6 +1,7 @@
 <template id="formSubmit">
 	<div class="form__submit">
 		<button
+			@click.prevent="count"
 			class="form__submit-button button"
 			name="submit"
 			type="submit"
@@ -47,12 +48,26 @@
 			return {
 				calcBtnActive: false,
 				clearBtnActive: false,
+				calRange: [],
 			};
 		},
 		methods: {
 			customClick() {
 				let someElement = this.$el.querySelector(".form__submit-button");
 				console.log(someElement);
+			},
+			count() {
+				let N = Math.round(
+					(10 * this.stats.weight +
+						6.25 * this.stats.height -
+						5 * this.stats.age +
+						this.stats.genderCoeff) *
+						this.stats.activityCoeff
+				);
+				this.calRange = [];
+				this.calRange.push(N); // ккал для поддержания веса
+				this.calRange.push(Math.round(N - 0.15 * N)); // ккал для снижения веса
+				this.calRange.push(Math.round(N + 0.15 * N)); // ккал для набора веса
 			},
 		},
 		watch: {
