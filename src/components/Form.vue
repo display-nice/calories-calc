@@ -5,17 +5,19 @@
 			Жмяк
 		</button>
 		<form-activity @activityCoeff="recieveActivityCoeff" />
-		<form-submit :stats="stats" />
+		<form-submit :stats="stats" @caloriesEmi="processCalories" />
 	</form>
+	<form-result :calories="calories" />
 </template>
 
 <script>
 	import FormPhysStats from "@/components/FormPhysStats.vue";
 	import FormActivity from "./FormActivity.vue";
 	import FormSubmit from "./FormSubmit.vue";
+	import FormResult from "./FormResult.vue";
 
 	export default {
-		components: { FormPhysStats, FormActivity, FormSubmit },
+		components: { FormPhysStats, FormActivity, FormSubmit, FormResult },
 		data() {
 			return {
 				stats: {
@@ -25,6 +27,7 @@
 					height: Number,
 					weight: Number,
 				},
+				calories: {},
 				testButton: 0,
 			};
 		},
@@ -39,7 +42,12 @@
 				this.stats.height = data.height;
 				this.stats.weight = data.weight;
 			},
+			processCalories(calories) {
+				this.calories = calories;
+			},
 		},
+		// computed: {
+		// },
 	};
 </script>
 

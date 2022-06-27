@@ -10,7 +10,7 @@
 		>
 			Рассчитать
 		</button>
-		<button @click="customClick">Custom Click</button>
+		<!-- <button @click="customClick">Custom Click</button> -->
 		<button
 			class="form__reset-button"
 			name="reset"
@@ -48,14 +48,14 @@
 			return {
 				calcBtnActive: false,
 				clearBtnActive: false,
-				calRange: [],
+				calories: {},
 			};
 		},
 		methods: {
-			customClick() {
-				let someElement = this.$el.querySelector(".form__submit-button");
-				console.log(someElement);
-			},
+			// customClick() {
+			// 	let someElement = this.$el.querySelector(".form__submit-button");
+			// 	console.log(someElement);
+			// },
 			count() {
 				let N = Math.round(
 					(10 * this.stats.weight +
@@ -64,10 +64,12 @@
 						this.stats.genderCoeff) *
 						this.stats.activityCoeff
 				);
-				this.calRange = [];
-				this.calRange.push(N); // ккал для поддержания веса
-				this.calRange.push(Math.round(N - 0.15 * N)); // ккал для снижения веса
-				this.calRange.push(Math.round(N + 0.15 * N)); // ккал для набора веса
+				this.calories = {};
+				this.calories.vis = true;
+				this.calories.norm = N; // ккал для поддержания веса
+				this.calories.min = Math.round(N - 0.15 * N); // ккал для снижения веса
+				this.calories.max = Math.round(N + 0.15 * N); // ккал для набора веса
+				this.$emit("caloriesEmi", this.calories);
 			},
 		},
 		watch: {
