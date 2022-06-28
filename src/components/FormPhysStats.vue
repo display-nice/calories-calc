@@ -1,6 +1,9 @@
 <template>
 	<div class="form__item">
 		<h2 class="heading">Пол</h2>
+		<!-- <button style="margin-left: 130px" @click="this.testButton += 1">
+			Жмяк
+		</button> -->
 		<ul class="switcher">
 			<li class="switcher__item">
 				<input
@@ -12,7 +15,7 @@
 					checked
 					required
 				/>
-				<label for="gender-male"> Мужчина </label>
+				<label for="gender-male">Мужчина</label>
 			</li>
 			<li class="switcher__item">
 				<input
@@ -23,7 +26,7 @@
 					type="radio"
 					required
 				/>
-				<label for="gender-female"> Женщина </label>
+				<label for="gender-female">Женщина</label>
 			</li>
 		</ul>
 	</div>

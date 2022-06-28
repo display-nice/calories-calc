@@ -6,6 +6,7 @@
 				<div class="radio__wrapper">
 					<input
 						@click="getActivityCoeff"
+						ref="activityMin"
 						id="activity-minimal"
 						name="activity"
 						value="min"
@@ -85,6 +86,9 @@
 
 <script>
 	export default {
+		props: {
+			setDefault: Boolean,
+		},
 		data() {
 			return {
 				activityCoeff: 1.2,
@@ -116,6 +120,17 @@
 			},
 			// increase() {
 			// }
+		},
+		watch: {
+			setDefault(newValue) {
+				console.log(
+					"в Activity пришли пропсы и сработал вотчер, setDefault = ",
+					this.setDefault
+				);
+				if (newValue) {
+					this.$refs.activityMin.checked = true;
+				}
+			},
 		},
 	};
 </script>

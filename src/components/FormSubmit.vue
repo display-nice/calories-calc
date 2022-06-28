@@ -15,7 +15,7 @@
 			class="form__reset-button"
 			name="reset"
 			type="reset"
-			:disabled="clearBtnActive"
+			:disabled="clearBtnDisabled"
 		>
 			<svg
 				width="24"
@@ -47,15 +47,15 @@
 		data() {
 			return {
 				calcBtnActive: false,
-				clearBtnActive: false,
+				clearBtnDisabled: true,
 				calories: {},
+				defaultValues: {
+					gender: "female",
+					activity: "min",
+				},
 			};
 		},
 		methods: {
-			// customClick() {
-			// 	let someElement = this.$el.querySelector(".form__submit-button");
-			// 	console.log(someElement);
-			// },
 			count() {
 				let N = Math.round(
 					(10 * this.stats.weight +
@@ -71,6 +71,11 @@
 				this.calories.max = Math.round(N + 0.15 * N); // ккал для набора веса
 				this.$emit("caloriesEmi", this.calories);
 			},
+			// clear() {
+			// 	// this.clearBtnDisabled = true;
+			// 	// this.$emit("clearEmi", true);
+			// 	// this.$emit("clearEmi", false);
+			// },
 		},
 		watch: {
 			stats: {
@@ -85,6 +90,9 @@
 					statsFilled === values.length
 						? (this.$refs.calcBtn.disabled = false)
 						: (this.$refs.calcBtn.disabled = true);
+					statsFilled >= 3
+						? (this.clearBtnDisabled = false)
+						: (this.clearBtnDisabled = true);
 				},
 				deep: true,
 			},
