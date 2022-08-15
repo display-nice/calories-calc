@@ -10,8 +10,8 @@
 		>
 			Рассчитать
 		</button>
-		<!-- <button @click="customClick">Custom Click</button> -->
 		<button
+			@click.prevent="clear"
 			class="form__reset-button"
 			name="reset"
 			type="reset"
@@ -71,11 +71,16 @@
 				this.calories.max = Math.round(N + 0.15 * N); // ккал для набора веса
 				this.$emit("caloriesEmi", this.calories);
 			},
-			// clear() {
-			// 	// this.clearBtnDisabled = true;
-			// 	// this.$emit("clearEmi", true);
-			// 	// this.$emit("clearEmi", false);
-			// },
+			clear() {
+				// this.clearBtnDisabled = true;
+				// this.$emit("clearEmi", true);
+				// this.$emit("clearEmi", false);
+				this.calories.vis = false;
+				this.calories.norm = "---"; // ккал для поддержания веса
+				this.calories.min = "---"; // ккал для снижения веса
+				this.calories.max = "---"; // ккал для набора веса
+				this.$emit("caloriesEmi", this.calories);
+			},
 		},
 		watch: {
 			stats: {

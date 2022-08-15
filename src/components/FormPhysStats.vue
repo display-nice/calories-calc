@@ -1,9 +1,6 @@
 <template>
 	<div class="form__item">
 		<h2 class="heading">Пол</h2>
-		<!-- <button style="margin-left: 130px" @click="this.testButton += 1">
-			Жмяк
-		</button> -->
 		<ul class="switcher">
 			<li class="switcher__item">
 				<input
