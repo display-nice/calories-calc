@@ -1,19 +1,16 @@
-# calories_calc
+# calories-calc, https://wakadaka59.github.io/calories-calc/
+Калькулятор калорий на Vue.js 3 .
+Проект для отработки базовых навыков работы с фреймворком Vue.js 3 версии.
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Особенности проекта:
+  * Компонентный подход. Всего семь компонентов (родительские и дочерние);
+  * Я использовал:
+      * методы;
+      * вотчи;
+      * директивы (v-show, v-on, v-bind, v-model);
+      * рефы;
+      * пропсы;
+      * эмиты.
+  * Данные передаются из одного дочернего компонента в родительский, а затем в другой дочерний компонент;
+  * Изначально этот проект был написан мной на чистом Javascript, затем подвергся рефакторингу на Vue3 через отдельную ветку (merge с веткой master      впоследствии)
+  * Публикацию проекта я произвёл через npm-пакет "gh-pages";
