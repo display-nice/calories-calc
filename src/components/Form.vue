@@ -1,9 +1,6 @@
 <template>
 	<form class="counter__form form" name="counter" action="#" method="post">
 		<form-phys-stats :set-default="setDefault" @physicalStats="recievePhysStats" />
-		<!-- <button style="margin-left: 130px" @click="this.testButton += 1">
-			Жмяк
-		</button> -->
 		<form-activity
 			:set-default="setDefault"
 			@activityCoeff="recieveActivityCoeff"
@@ -57,12 +54,8 @@
 			},
 			processClear(setDefault) {
 				this.setDefault = setDefault;
-				// this.setDefault = false;
-				// console.log("выполнился processClear, setDefault = ", this.setDefault);
 			},
 		},
-		// computed: {
-		// },
 	};
 </script>
 
