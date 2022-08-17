@@ -1,6 +1,6 @@
 <template>
 	<form class="counter__form form" name="counter" action="#" method="post">
-		<form-phys-stats @physicalStats="recievePhysStats" />
+		<form-phys-stats :set-default="setDefault" @physicalStats="recievePhysStats" />
 		<!-- <button style="margin-left: 130px" @click="this.testButton += 1">
 			Жмяк
 		</button> -->
@@ -35,17 +35,13 @@
 					weight: Number,
 				},
 				calories: {},
-				setDefault: false,
-				// defaultValues: {
-				// 	gender: "female",
-				// 	activity: "min",
-				// },
+				setDefault: 0,
 				testButton: 0,
 			};
 		},
-		updated() {
-			console.log("отработал хук updated внутри Form");
-		},
+		// updated() {
+		// 	console.log("отработал хук updated внутри Form");
+		// },
 		methods: {
 			recieveActivityCoeff(data) {
 				this.stats.activityCoeff = data;
@@ -59,10 +55,10 @@
 			processCalories(calories) {
 				this.calories = calories;
 			},
-			processClear(data) {
-				this.setDefault = data;
+			processClear(setDefault) {
+				this.setDefault = setDefault;
 				// this.setDefault = false;
-				console.log("выполнился processClear, setDefault = ", this.setDefault);
+				// console.log("выполнился processClear, setDefault = ", this.setDefault);
 			},
 		},
 		// computed: {

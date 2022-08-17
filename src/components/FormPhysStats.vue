@@ -5,6 +5,7 @@
 			<li class="switcher__item">
 				<input
 					@click="emitPhysStats"
+					ref="defaultGender"
 					id="gender-male"
 					name="gender"
 					value="male"
@@ -95,6 +96,9 @@
 	export default {
 		// name: FormPhysStats,
 		emits: ["physicalStats"],
+		props: {
+			setDefault: 0
+		},
 		data() {
 			return {
 				physStats: {
@@ -118,6 +122,21 @@
 					}
 				}
 				this.$emit("physicalStats", this.physStats);
+			},
+		},
+		watch: {
+			setDefault(newValue) {
+				console.log(
+					"в PhysStats пришли пропсы и сработал вотчер, setDefault = ",
+					this.setDefault
+				);
+				// this.$refs.activityMin.checked = true;
+				this.physStats = {
+					age: "",
+					height: "",
+					weight: "",
+				}
+				this.$refs.defaultGender.checked = true;
 			},
 		},
 	};

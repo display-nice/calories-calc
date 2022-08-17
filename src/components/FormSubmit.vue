@@ -2,16 +2,17 @@
 	<div class="form__submit">
 		<button
 			@click.prevent="count"
+			ref="calcBtn"
 			class="form__submit-button button"
 			name="submit"
 			type="submit"
-			ref="calcBtn"
 			disabled
 		>
 			Рассчитать
 		</button>
 		<button
 			@click.prevent="clear"
+			ref="clearBtn"
 			class="form__reset-button"
 			name="reset"
 			type="reset"
@@ -53,6 +54,7 @@
 					gender: "female",
 					activity: "min",
 				},
+				setDefault: 0
 			};
 		},
 		methods: {
@@ -72,14 +74,20 @@
 				this.$emit("caloriesEmi", this.calories);
 			},
 			clear() {
-				// this.clearBtnDisabled = true;
-				// this.$emit("clearEmi", true);
-				// this.$emit("clearEmi", false);
 				this.calories.vis = false;
 				this.calories.norm = "---"; // ккал для поддержания веса
 				this.calories.min = "---"; // ккал для снижения веса
 				this.calories.max = "---"; // ккал для набора веса
 				this.$emit("caloriesEmi", this.calories);
+
+				// прибавка сделана для watch'a в FormActivity для того, чтобы гарантировать
+				// что каждый раз при нажатии кнопки "очистить", в вотч передастся новое значение пропса
+				// и вотч запустит содержащийся в нём код
+				this.setDefault += 1; 
+				this.$emit("clearEmi", this.setDefault);
+
+				this.$refs.clearBtn.disabled = true;
+				this.$refs.calcBtn.disabled = true;
 			},
 		},
 		watch: {

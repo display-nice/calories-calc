@@ -87,7 +87,7 @@
 <script>
 	export default {
 		props: {
-			setDefault: Boolean,
+			setDefault: 0,
 		},
 		data() {
 			return {
@@ -127,9 +127,7 @@
 					"в Activity пришли пропсы и сработал вотчер, setDefault = ",
 					this.setDefault
 				);
-				if (newValue) {
-					this.$refs.activityMin.checked = true;
-				}
+				this.$refs.activityMin.checked = true;
 			},
 		},
 	};
