@@ -34,58 +34,58 @@
 			<div class="input">
 				<div class="input__heading">
 					<label class="heading" for="age"> Возраст </label>
-					<span class="input__heading-unit"> лет </span>
-				</div>
-				<div class="input__wrapper">
-					<input
-						@input="emitPhysStats"
-						v-model="physStats.age"
-						type="text"
-						id="age"
-						name="age"
-						placeholder="0"
-						inputmode="decimal"
-						maxlength="3"
-						required
-					/>
+					<div class="input__wrapper">
+						<input
+							@input="emitPhysStats"
+							v-model="physStats.age"
+							type="text"
+							id="age"
+							name="age"
+							placeholder="0"
+							inputmode="decimal"
+							maxlength="3"
+							required
+						/>
+						<span class="input__heading-unit"> лет </span>
+					</div>
 				</div>
 			</div>
 			<div class="input">
 				<div class="input__heading">
 					<label class="heading" for="height"> Рост </label>
-					<span class="input__heading-unit"> см </span>
-				</div>
-				<div class="input__wrapper">
-					<input
-						@input="emitPhysStats"
-						v-model="physStats.height"
-						type="text"
-						id="height"
-						name="height"
-						placeholder="0"
-						inputmode="decimal"
-						maxlength="3"
-						required
-					/>
+					<div class="input__wrapper">
+						<input
+							@input="emitPhysStats"
+							v-model="physStats.height"
+							type="text"
+							id="height"
+							name="height"
+							placeholder="0"
+							inputmode="decimal"
+							maxlength="3"
+							required
+						/>
+						<span class="input__heading-unit"> см </span>
+					</div>
 				</div>
 			</div>
 			<div class="input">
 				<div class="input__heading">
 					<label class="heading" for="weight"> Вес </label>
-					<span class="input__heading-unit"> кг </span>
-				</div>
-				<div class="input__wrapper">
-					<input
-						v-model="physStats.weight"
-						@input="emitPhysStats"
-						type="text"
-						id="weight"
-						name="weight"
-						placeholder="0"
-						inputmode="decimal"
-						maxlength="3"
-						required
-					/>
+					<div class="input__wrapper">
+						<input
+							v-model="physStats.weight"
+							@input="emitPhysStats"
+							type="text"
+							id="weight"
+							name="weight"
+							placeholder="0"
+							inputmode="decimal"
+							maxlength="3"
+							required
+						/>
+						<span class="input__heading-unit"> кг </span>
+					</div>
 				</div>
 			</div>
 		</div>
