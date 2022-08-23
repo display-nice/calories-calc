@@ -3,7 +3,8 @@ import App from './App.vue'
 // import Hint from './Hint.vue'
 // import router from './router'
 // import store from './store'
-import '@/assets/css/style.css'
+// import '@/assets/css/style.css'
+import '@/assets/css/style.scss'
 import '@/assets/css/normalize.css'
 
 createApp(App).mount('#app')

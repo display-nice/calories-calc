@@ -1,0 +1,56 @@
+@font-face {
+	font-style: normal;
+	font-weight: 700;
+	font-family: "PT Sans Caption";
+
+	font-display: swap;
+	src: url("../fonts/pt-sans-caption-bold.woff2") format("woff2"),
+		url("../fonts/pt-sans-caption-bold.woff") format("woff");
+}
+
+@font-face {
+	font-style: normal;
+	font-weight: 400;
+	font-family: "PT Sans Caption";
+	font-display: swap;
+	src: url("../fonts/pt-sans-caption-regular.woff2") format("woff2"),
+		url("../fonts/pt-sans-caption-regular.woff") format("woff");
+}
+
+*,
+*::before,
+*::after {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	min-width: 1160px;
+}
+
+body {
+	width: 100%;
+	font-size: 18px;
+	line-height: 21px;
+	font-family: "PT Sans Caption", "Arial", sans-serif;
+	color: var(--color-text-black);
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

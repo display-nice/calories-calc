@@ -2,7 +2,7 @@
   "name": "calories_calc",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://wakadaka59.github.io/calories-calc/", 
+  "homepage": "https://wakadaka59.github.io/calories-calc/",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -20,7 +20,10 @@
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",
-    "@vue/cli-service": "~5.0.0"
+    "@vue/cli-service": "~5.0.0",
+    "node-sass": "^7.0.1",
+    "sass": "^1.54.5",
+    "sass-loader": "^13.0.2"
   },
   "browserslist": [
     "> 1%",

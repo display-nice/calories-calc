@@ -1,6 +1,6 @@
 <template>
 	<main class="main">
-		<Hint />
+		<!-- <Hint /> -->
 		<div class="container">
 		<article  class="counter">
 			<Header />
@@ -14,7 +14,6 @@
 	import Header from "@/components/Header.vue";
 	import Form from "@/components/Form.vue";
 	import Hint from "@/components/Hint.vue";
-	// import Result from "./components/FormResult.vue";
 	export default {
 		components: {
 			Header,
