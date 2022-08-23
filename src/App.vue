@@ -1,6 +1,6 @@
 <template>
 	<main class="main">
-		<!-- <Hint /> -->
+		<Hint />
 		<div class="container">
 		<article  class="counter">
 			<Header />

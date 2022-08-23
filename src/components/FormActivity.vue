@@ -118,8 +118,6 @@
 				}
 				this.$emit("activityCoeff", this.activityCoeff);
 			},
-			// increase() {
-			// }
 		},
 		watch: {
 			setDefault(newValue) {

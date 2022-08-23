@@ -36,9 +36,6 @@
 				testButton: 0,
 			};
 		},
-		// updated() {
-		// 	console.log("отработал хук updated внутри Form");
-		// },
 		methods: {
 			recieveActivityCoeff(data) {
 				this.stats.activityCoeff = data;

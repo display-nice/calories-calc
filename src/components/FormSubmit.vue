@@ -94,9 +94,10 @@
 			stats: {
 				handler(changedStats) {
 					let values = Object.values(changedStats);
+					console.log(values);
 					let statsFilled = 0;
 					for (let value of values) {
-						if (value) {
+						if (typeof(value) !== 'function' && value !== '') {
 							statsFilled += 1;
 						}
 					}

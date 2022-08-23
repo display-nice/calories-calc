@@ -94,7 +94,6 @@
 
 <script>
 	export default {
-		// name: FormPhysStats,
 		emits: ["physicalStats"],
 		props: {
 			setDefault: 0
@@ -130,7 +129,6 @@
 					"в PhysStats пришли пропсы и сработал вотчер, setDefault = ",
 					this.setDefault
 				);
-				// this.$refs.activityMin.checked = true;
 				this.physStats = {
 					age: "",
 					height: "",
